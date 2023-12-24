@@ -8,7 +8,7 @@ header {
     display: flex;
     justify-content:flex-start;
     align-items: center;
-    background-color: #d99f9f;
+    background-color: #856c8d;
     color: #fff;
     padding: 2px;
     margin: 5px;
@@ -23,7 +23,7 @@ nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    
+
 }
 
 nav a {
@@ -36,7 +36,7 @@ nav a {
 main {
     color: white;
     text-align:center;
-    
+
 }
 
 footer {
@@ -71,7 +71,7 @@ textarea {
 
 
 button {
-    background-color: #d99f9f;
+    background-color: #856c8d;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -82,6 +82,7 @@ button {
     display: grid;
     grid-template-columns: 20% 80%;
 }
+
 @media only screen and (max-width: 768px) {
 
 }
