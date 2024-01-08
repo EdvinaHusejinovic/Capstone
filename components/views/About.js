@@ -1,7 +1,7 @@
 import html from "html-literal";
 
 export default () => html`
-  <main>
+  <div class="aboutPage">
     <h3>Our Mission</h3>
     <p>
       We strive for a future where education knows no bounds and is accessible
@@ -21,5 +21,5 @@ export default () => html`
       able to address the individual needs of each student with the support of
       the families and staff.
     </p>
-  </main>
+  </div>
 `;

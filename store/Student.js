@@ -1,4 +1,4 @@
 export default {
-  header: "Student Page",
+  header: "Welcome Student",
   view: "Student"
 };

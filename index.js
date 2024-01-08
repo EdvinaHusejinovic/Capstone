@@ -23,10 +23,72 @@ function afterRender() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+  // for parent page
+  function openSection(button, tabType) {
+    var i, tabContent, tabs;
+
+    tabContent = document.getElementsByClassName("tabContent");
+    for (i = 0; i < tabContent.length; i++) {
+      tabContent[i].style.display = "none";
+    }
+
+    tabs = document.getElementsByClassName("tabs");
+
+    for (i = 0; i < tabs.length; i++) {
+      tabs[i].className = (tabs[i].className + " ")
+        .replace(" active ", "")
+        .trim();
+    }
+    document.getElementById(tabType).style.display = "block";
+    button.className += "active";
+  }
+
+  try {
+    document.querySelector("#tab1").addEventListener("click", () => {
+      openSection(document.querySelector("#tab1"), "child");
+    });
+
+    document.querySelector("#tab3").addEventListener("click", () => {
+      openSection(document.querySelector("#tab3"), "message");
+    });
+  } catch (err) {
+    // catch error
+  }
 }
 
+// //Join today button
+// if (state.view === "Home") {
+//   //Do this stuff
+//   document.getElementById("join").addEventListener("click", event => {
+//     event.preventDefault();
+
+//     router.navigate("/join");
+//   });
+// }
+
+// if (state.view === "Parent") {
+//   // Add an event handler for the submit button on the form
+//   document.querySelector("form").addEventListener("submit", event => {
+//     event.preventDefault();
+
+//     let inputs = event.target.elements;
+
+//     store.Join.joins.push({
+//       name: event.target.elements.name.value,
+//       age: event.target.elements.age.value,
+//       gender: inputs.gender.value,
+//       grade: event.target.elements.grade.value,
+//       activities: []
+//     });
+
+//     console.log(store.Join.join);
+
+//     router.navigate("/Join");
+//   });
+// }
+
 router.hooks({
-  before: (done, params) => {
+  before: async (done, params) => {
     // We need to know what view we are on to know what data to fetch
     const view =
       params && params.data && params.data.view
@@ -53,14 +115,6 @@ router.hooks({
               feelsLike: kelvinToFahrenheit(response.data.main.feels_like),
               description: response.data.weather[0].main
             };
-
-            // An alternate method would be to store the values independently
-            /*
-      store.Home.weather.city = response.data.name;
-      store.Home.weather.temp = kelvinToFahrenheit(response.data.main.temp);
-      store.Home.weather.feelsLike = kelvinToFahrenheit(response.data.main.feels_like);
-      store.Home.weather.description = response.data.weather[0].main;
-      */
             done();
           })
           .catch(err => {
@@ -68,6 +122,24 @@ router.hooks({
             done();
           });
         break;
+
+      case "Join":
+        axios
+          .get(`${process.env.PIZZA_PLACE_API_URL}/Join`)
+          .then(response => {
+            // We need to store the response to the state, in the next step but in the meantime
+            //   let's see what it looks like so that we know what to store from the response.
+            console.log("response", response.data);
+            store.Join.joins = response.data;
+
+            done();
+          })
+          .catch(error => {
+            console.log("It puked", error);
+            done();
+          });
+        break;
+
       default:
         done();
     }

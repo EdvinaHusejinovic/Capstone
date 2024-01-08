@@ -1,20 +1,44 @@
 import html from "html-literal";
 
 export default () => html`
-  <main>
-    <h1>Contact Us</h1>
+<h1 id="contactMe">Contact Me</h1>
 
-    <form action="formspree" method="POST">
+  <div class="contactForm">
+
+    <form action="https://formspree.io/f/xeqyqpoy" method="POST">
+
+
+
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required />
+      <br>
+      <input type="text" name="name" id="name" placeholder="Full Name"  required/>
+      <br>
+      <br>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required />
+      <br>
+      <input type="email" name="email" id="email" placeholder="you@somewhere.com" required />
+      <br>
+      <br>
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" required></textarea>
+      <label for="phone">Phone:</label>
+      <br>
+      <input type="tel" name="phone" id="phone" placeholder="555-555-5555" required/>
+      <br>
+      <br>
 
-      <button type="submit">Submit</button>
+        <label for="msg">Subject:</label>
+        <br>
+        <textarea name="message" id="msg" cols="10" rows="6" required></textarea>
+
+      </div>
+
+
+  </div>
+  <br>
+    <input type="submit" value="Submit" id = "buttonS" />
     </form>
-  </main>
+
+  </div>
+</div>
 `;
