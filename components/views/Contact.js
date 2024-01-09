@@ -5,25 +5,25 @@ export default () => html`
 
   <div class="contactForm">
 
-    <form action="https://formspree.io/f/xeqyqpoy" method="POST">
+    <form action="" method="POST">
 
 
 
       <label for="name">Name:</label>
       <br>
-      <input type="text" name="name" id="name" placeholder="Full Name"  required/>
+      <input type="text" name="name" id="name" placeholder="Name"  required/>
       <br>
       <br>
 
       <label for="email">Email:</label>
       <br>
-      <input type="email" name="email" id="email" placeholder="you@somewhere.com" required />
+      <input type="email" name="email" id="email" placeholder="example@example.com" required />
       <br>
       <br>
 
       <label for="phone">Phone:</label>
       <br>
-      <input type="tel" name="phone" id="phone" placeholder="555-555-5555" required/>
+      <input type="tel" name="phone" id="phone" placeholder="333-333-3333" required/>
       <br>
       <br>
 

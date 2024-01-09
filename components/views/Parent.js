@@ -20,7 +20,7 @@ export default () => html`
         <button class="tabs active-content" id="tab1">Child</button>
 
 
-        <button class="tabs" id="tab3">
+        <button class="tabs" id="tab2">
           Message
         </button>
       </div>

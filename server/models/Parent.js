@@ -23,6 +23,6 @@ const parentSchema = new mongoose.Schema({
   activities: [String]
 });
 
-const Parent = mongoose.model("Habit", parentSchema);
+const Parent = mongoose.model("parent", parentSchema);
 
 export default Parent;

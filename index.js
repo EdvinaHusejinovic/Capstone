@@ -23,6 +23,7 @@ function afterRender() {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
+
   // for parent page
   function openSection(button, tabType) {
     var i, tabContent, tabs;
@@ -48,8 +49,8 @@ function afterRender() {
       openSection(document.querySelector("#tab1"), "child");
     });
 
-    document.querySelector("#tab3").addEventListener("click", () => {
-      openSection(document.querySelector("#tab3"), "message");
+    document.querySelector("#tab2").addEventListener("click", () => {
+      openSection(document.querySelector("#tab2"), "message");
     });
   } catch (err) {
     // catch error

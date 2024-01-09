@@ -236,8 +236,6 @@ button {
   cursor: pointer;
 }
 
-
-
 @media (max-width: 549px){
   .hidden--mobile {
     display: none !important;

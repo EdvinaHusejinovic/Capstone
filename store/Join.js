@@ -1,4 +1,4 @@
 export default {
   header: "Join Page",
-  view: "Join Us"
+  view: "Join As a"
 };

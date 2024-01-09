@@ -13,3 +13,26 @@ export default links => html`
     </ul>
   </nav>
 `;
+
+//   <div class="menu_wrapper">
+//     <div class="menu_toggle" onclick="toggleMenu()">
+//       <span class="menu_icon">☰</span>
+//     </div>
+
+//     <div class="menu" id="navbarNav" style="display: none;">
+//       <ul>
+//         ${links
+//           .map(
+//             link => `
+//         <li class="${state.view === link.title ? "active" : ""}">
+//           <a href="/${link.title}" title="${link.title}" data-navigo>
+//             <i class="fa-solid ${link.iconClass}"></i> ${link.text}
+//           </a>
+//           </li>
+//           `
+//           )
+//           .join("")}
+//       </ul>
+//     </div>
+//   </div>
+// `;
