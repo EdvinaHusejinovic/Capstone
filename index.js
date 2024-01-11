@@ -15,15 +15,46 @@ function render(state = store.Home) {
   `;
 
   router.updatePageLinks();
-  afterRender();
+  afterRender(state);
 }
 
-function afterRender() {
-  // add menu toggle to bars icon in nav bar
+function afterRender(state) {
   document.querySelector(".fa-bars").addEventListener("click", () => {
     document.querySelector("nav > ul").classList.toggle("hidden--mobile");
   });
 
+  if (state.view === "Home") {
+    // Do this stuff
+    document.getElementById("JoinTodayAsA").addEventListener("click", event => {
+      event.preventDefault();
+      router.navigate("/join");
+    });
+  }
+
+  if (state.view === "Join") {
+    // Do this stuff for Join view
+    const buttonOptions = document.getElementById("buttonOptions");
+
+    if (buttonOptions) {
+      buttonOptions.addEventListener("click", event => {
+        event.preventDefault();
+        router.navigate("/parent");
+      });
+    }
+  }
+
+  if (state.view === "Parent") {
+    // Do this stuff for Parent view
+    const parentSideBar = document.getElementById("parentSideBar");
+
+    if (parentSideBar) {
+      parentSideBar.addEventListener("click", event => {
+        event.preventDefault();
+        openSection(parentSideBar, "child"); // Change second parameter based on button you want
+        router.navigate("/parent");
+      });
+    }
+  }
   // for parent page
   function openSection(button, tabType) {
     var i, tabContent, tabs;
@@ -46,7 +77,7 @@ function afterRender() {
 
   try {
     document.querySelector("#tab1").addEventListener("click", () => {
-      openSection(document.querySelector("#tab1"), "child");
+      openSection(document.querySelector("#tab1"), "addChild");
     });
 
     document.querySelector("#tab2").addEventListener("click", () => {
@@ -56,37 +87,6 @@ function afterRender() {
     // catch error
   }
 }
-
-// //Join today button
-// if (state.view === "Home") {
-//   //Do this stuff
-//   document.getElementById("join").addEventListener("click", event => {
-//     event.preventDefault();
-
-//     router.navigate("/join");
-//   });
-// }
-
-// if (state.view === "Parent") {
-//   // Add an event handler for the submit button on the form
-//   document.querySelector("form").addEventListener("submit", event => {
-//     event.preventDefault();
-
-//     let inputs = event.target.elements;
-
-//     store.Join.joins.push({
-//       name: event.target.elements.name.value,
-//       age: event.target.elements.age.value,
-//       gender: inputs.gender.value,
-//       grade: event.target.elements.grade.value,
-//       activities: []
-//     });
-
-//     console.log(store.Join.join);
-
-//     router.navigate("/Join");
-//   });
-// }
 
 router.hooks({
   before: async (done, params) => {
@@ -124,14 +124,15 @@ router.hooks({
           });
         break;
 
-      case "Join":
+      case "Child":
+        // New Axios get request utilizing already made environment variable
         axios
-          .get(`${process.env.PIZZA_PLACE_API_URL}/Join`)
+          .get(`${process.env.ADD_CHILD_API_URL}/child`)
           .then(response => {
             // We need to store the response to the state, in the next step but in the meantime
             //   let's see what it looks like so that we know what to store from the response.
             console.log("response", response.data);
-            store.Join.joins = response.data;
+            store.Child.child = response.data;
 
             done();
           })

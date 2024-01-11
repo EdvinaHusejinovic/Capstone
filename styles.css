@@ -59,8 +59,28 @@ header {
     border-radius: 10px;
   }
 
+  .button-options {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /*Center the buttons horizontally */
+
+  }
+
+  .button-options button {
+    margin: 5px; /* Adds some space between buttons */
+    width: 150px; /* Set width for the buttons */
+    border-radius: 10px; /* Adjust the border-radius to make the buttons round */
+    padding: 10px; /*padding for better visual appearance */
+    cursor: pointer; /*Change cursor*/
+    transition: background-color 5s;
+  }
+  .button-options button:hover {
+    cursor: pointer;
+    background-color: var(--border-color); /*Change background color on hover */
+  }
+
 .active {
-  background-color: blue;
+  background-color: darkgreen;
   border: none;
 }
 
@@ -115,50 +135,47 @@ footer {
 }
 
 
-/*parent page*/
 
+/* parent page */
 .parentPage {
-  color:var(--text-color);
+  color: var(--text-color);
   text-align: center;
 }
 
 label {
-  display:contents;
   margin-bottom: 2px;
 }
 
-
-#parentSideBar {
+#parentSideButtons {
   display: grid;
 }
 
+
+/* sidebar */
+.sideButtons {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  background-color: var(--border-color);
+  width: 10vw;
+  padding-right: 25px;
+  padding-left: 25px;
+  padding-top: 10px;
+}
+
 /*add child section*/
-#child {
+#addChild {
   grid-column-start: 2;
   grid-column-end: 5;
   min-width: 100%;
   text-align: left;
 }
 
-/*message page */
-#messages {
+/* message page */
+#message {
   grid-column-start: 2;
   grid-column-end: 5;
-  min-width: 250%;
+  min-width: 100%; /* Adjusted this value */
   text-align: left;
-}
-
-/* sidebar */
-
-.sideBar {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  background-color: var(--accent-color);
-  width: 10vw;
-  padding-right: 25px;
-  padding-left: 25px;
-  padding-top: 10px;
-
 }
 
 .tabs {
@@ -170,26 +187,47 @@ label {
   width: 10vw;
 }
 
-.sideBar button {
-background-color: inherit;
+/* Corrected the class name to .sideButtons */
+.sideButtons button {
+  background-color: inherit;
   float: left;
   border: none;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.sideBar button:hover{
+.sideButtons button:hover {
   background-color: var(--border-color);
 }
 
-.sideBar button.active{
+.sideButtons button.active {
   background-color: var(--accent-color);
 }
-
 .tabContent{
   display: none;
-  padding: 6px 12px;
+  padding: 50px 50px;
 
+}
+
+
+
+
+
+/*Resources page*/
+.resources  {
+  background: url(assets/img/pike.jpg) center center no-repeat;
+  background-size: cover;
+  filter: grayscale(40%);
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  height: 90vh;
+  background-attachment: fixed;
+  color: var(--text-color);
+  font-size: 1.5em;
+  padding: 1em;
+  margin: auto;
 }
 
 

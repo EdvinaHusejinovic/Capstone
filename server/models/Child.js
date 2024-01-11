@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const parentSchema = new mongoose.Schema({
+const childSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -23,6 +23,6 @@ const parentSchema = new mongoose.Schema({
   activities: [String]
 });
 
-const Parent = mongoose.model("parent", parentSchema);
+const Child = mongoose.model("child", childSchema);
 
-export default Parent;
+export default Child;

@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import parents from "./routers/parents.js";
+import child from "./routers/child.js";
 
 // Load environment variables from .env files
 dotenv.config();
@@ -60,6 +60,6 @@ app.get("/status", (request, response) => {
   response.status(200).json({ message: "Service healthy" });
 });
 
-app.use("/parents", parents);
+app.use("/child", child);
 
 app.listen(PORT, () => console.log("Listening on port 4040"));

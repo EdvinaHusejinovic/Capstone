@@ -1,12 +1,12 @@
 import { Router } from "express";
-import Parent from "../models/Parent.js";
+import Child from "../models/Child.js";
 
 const router = Router();
 
-// Create pizza route handles "/pizzas/"
+// Create Child route handles "/child/"
 router.post("/", async (request, response) => {
   try {
-    const newChild = new Parent(request.body);
+    const newChild = new Child(request.body);
 
     const data = await newChild.save();
 
@@ -22,13 +22,13 @@ router.post("/", async (request, response) => {
   }
 });
 
-// Get all pizzas route
+// Get all Child route
 router.get("/", async (request, response) => {
   try {
     // Store the query params into a JavaScript Object
     const query = request.query; // Defaults to an empty object {}
 
-    const data = await Parent.find(query);
+    const data = await Child.find(query);
 
     response.json(data);
   } catch (error) {
@@ -39,10 +39,10 @@ router.get("/", async (request, response) => {
   }
 });
 
-// Get a single pizza by ID
+// Get a single Child by ID
 router.get("/:id", async (request, response) => {
   try {
-    const data = await Parent.findById(request.params.id);
+    const data = await Child.findById(request.params.id);
 
     response.json(data);
   } catch (error) {
@@ -53,10 +53,10 @@ router.get("/:id", async (request, response) => {
   }
 });
 
-// Delete a pizza by ID
+// Delete a Child by ID
 router.delete("/:id", async (request, response) => {
   try {
-    const data = await Parent.findByIdAndRemove(request.params.id, {});
+    const data = await Child.findByIdAndRemove(request.params.id, {});
 
     response.json(data);
   } catch (error) {
@@ -67,12 +67,12 @@ router.delete("/:id", async (request, response) => {
   }
 });
 
-// Update a single pizza by ID
+// Update a single Child by ID
 router.put("/:id", async (request, response) => {
   try {
     const body = request.body;
 
-    const data = await Parent.findByIdAndUpdate(
+    const data = await Child.findByIdAndUpdate(
       request.params.id, //find the record
       {
         //provide the new data to update the record with
