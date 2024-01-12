@@ -60,6 +60,6 @@ app.get("/status", (request, response) => {
   response.status(200).json({ message: "Service healthy" });
 });
 
-app.use("/childs", childs);
+app.use("/children", childs);
 
 app.listen(PORT, () => console.log("Listening on port 4040"));
