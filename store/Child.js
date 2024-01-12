@@ -1,4 +1,5 @@
 export default {
   header: "Child Page",
-  view: "Child"
+  view: "Child",
+  children: []
 };

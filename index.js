@@ -48,13 +48,54 @@ function afterRender(state) {
     const parentSideBar = document.getElementById("parentSideBar");
 
     if (parentSideBar) {
-      parentSideBar.addEventListener("click", event => {
-        event.preventDefault();
-        openSection(parentSideBar, "child"); // Change second parameter based on button you want
-        router.navigate("/parent");
-      });
+      document
+        .querySelector("#addChildForm")
+        .addEventListener("submit", event => {
+          event.preventDefault();
+
+          // Get the form element
+          const inputList = event.target.elements;
+          console.log("Input Element List", inputList);
+
+          // Create an empty array to hold the activities
+          const activities = [];
+
+          // Iterate over the activities array
+          for (let input of inputList.activities) {
+            // If the value of the checked attribute is true then add the value to the activities array. pushes into the activities array above
+            if (input.checked) {
+              activities.push(input.value);
+            }
+          }
+
+          // Create a request body object to send to the API
+          const requestData = {
+            name: inputList.name.value,
+            age: inputList.age.value,
+            gender: inputList.gender.value,
+            grade: inputList.grade.value,
+            activities: activities
+          };
+
+          // Log the request body to the console
+          console.log("request Body", requestData);
+
+          axios
+            // Make a POST request to the API to create new child
+            .post(`${process.env.ADD_CHILD_API_URL}/children`, requestData)
+            .then(response => {
+              //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
+              store.Child.child.push(response.data);
+              router.navigate("/Child");
+            })
+            // If there is an error log it to the console
+            .catch(error => {
+              console.log("It puked", error);
+            });
+        });
     }
   }
+
   // for parent page
   function openSection(button, tabType) {
     var i, tabContent, tabs;
@@ -127,12 +168,12 @@ router.hooks({
       case "Child":
         // New Axios get request utilizing already made environment variable
         axios
-          .get(`${process.env.ADD_CHILD_API_URL}/child`)
+          .get(`${process.env.ADD_CHILD_API_URL}/children`)
           .then(response => {
             // We need to store the response to the state, in the next step but in the meantime
             //   let's see what it looks like so that we know what to store from the response.
             console.log("response", response.data);
-            store.Child.child = response.data;
+            store.Child.children = response.data;
 
             done();
           })

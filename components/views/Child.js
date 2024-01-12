@@ -9,7 +9,7 @@ export default state => html`
       <th>Grade</th>
       <th>Activities</th>
     </tr>
-    ${state.child
+    ${state.children
       .map(child => {
         return html`
           <tr>
