@@ -41,14 +41,6 @@ header {
   background-attachment: fixed; /*for image to stay fixed*/
 }
 
-/*home weather text color*/
-#weather > h2 {
-  color: var(--text-color);
-}
-#weather > p {
-  color: var(--text-color);
-}
-
 /*this is button for Join*/
 #homePage > a {
     text-decoration: none;
@@ -63,7 +55,6 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center; /*Center the buttons horizontally */
-
   }
 
   .button-options button {
@@ -79,16 +70,24 @@ header {
     background-color: var(--border-color); /*Change background color on hover */
   }
 
-.active {
-  border: none;
-}
+  .active {
+    border: none;
+  }
 
-.active a {
-  color:#d86ea6;
-}
+  .active a {
+    color:#d86ea6;
+  }
 
-#join {
-  cursor: pointer;
+  #join {
+    cursor: pointer;
+  }
+
+  /*home weather text color*/
+#weather > h2 {
+  color: var(--text-color);
+}
+#weather > p {
+  color: var(--text-color);
 }
 
 /* about page */

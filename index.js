@@ -44,10 +44,13 @@ function afterRender(state) {
   }
 
   if (state.view === "Parent") {
-    // Do this stuff for Parent view
-    const parentSideBar = document.getElementById("parentSideBar");
+    document.querySelector("#tab1").addEventListener("click", () => {
+      openSection(document.querySelector("#tab1"), "addChild");
+      // Do this stuff for Parent view
+      console.log(document.querySelector("#addChildForm"));
+      // const parentSideBar = document.getElementById("parentSideBar");
 
-    if (parentSideBar) {
+      // if (parentSideBar) {
       document
         .querySelector("#addChildForm")
         .addEventListener("submit", event => {
@@ -58,15 +61,15 @@ function afterRender(state) {
           console.log("Input Element List", inputList);
 
           // Create an empty array to hold the activities
-          const activities = [];
+          // const activities = [];
 
-          // Iterate over the activities array
-          for (let input of inputList.activities) {
-            // If the value of the checked attribute is true then add the value to the activities array. pushes into the activities array above
-            if (input.checked) {
-              activities.push(input.value);
-            }
-          }
+          // // Iterate over the activities array
+          // for (let input of inputList.activities) {
+          //   // If the value of the checked attribute is true then add the value to the activities array. pushes into the activities array above
+          //   if (input.checked) {
+          //     activities.push(input.value);
+          //   }
+          // }
 
           // Create a request body object to send to the API
           const requestData = {
@@ -74,7 +77,7 @@ function afterRender(state) {
             age: inputList.age.value,
             gender: inputList.gender.value,
             grade: inputList.grade.value,
-            activities: activities
+            activities: inputList.activities.value
           };
 
           // Log the request body to the console
@@ -85,7 +88,7 @@ function afterRender(state) {
             .post(`${process.env.ADD_CHILD_API_URL}/children`, requestData)
             .then(response => {
               //  Then push the new pizza onto the Pizza state pizzas attribute, so it can be displayed in the pizza list
-              store.Child.child.push(response.data);
+              store.Child.children.push(response.data);
               router.navigate("/Child");
             })
             // If there is an error log it to the console
@@ -93,7 +96,12 @@ function afterRender(state) {
               console.log("It puked", error);
             });
         });
-    }
+      //      }
+    });
+
+    document.querySelector("#tab2").addEventListener("click", () => {
+      openSection(document.querySelector("#tab2"), "message");
+    });
   }
 
   // for parent page
@@ -114,18 +122,6 @@ function afterRender(state) {
     }
     document.getElementById(tabType).style.display = "block";
     button.className += "active";
-  }
-
-  try {
-    document.querySelector("#tab1").addEventListener("click", () => {
-      openSection(document.querySelector("#tab1"), "addChild");
-    });
-
-    document.querySelector("#tab2").addEventListener("click", () => {
-      openSection(document.querySelector("#tab2"), "message");
-    });
-  } catch (err) {
-    // catch error
   }
 }
 
