@@ -1,26 +1,23 @@
 import html from "html-literal";
 
 export default state => html`
-  <table id="child">
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Gender</th>
-      <th>Grade</th>
-      <th>Activities</th>
-    </tr>
+  <link rel="stylesheet" href="styles.css" />
+
+  <div class="child-container">
     ${state.children
       .map(child => {
         return html`
-          <tr>
-            <td>${child.name}</td>
-            <td>${child.age}</td>
-            <td>${child.gender}</td>
-            <td>${child.grade}</td>
-            <td>${child.activities.join(" & ")}</td>
-          </tr>
+          <div class="child">
+            <p><strong>Name:</strong> ${child.name}</p>
+            <p><strong>Age:</strong> ${child.age}</p>
+            <p><strong>Gender:</strong> ${child.gender}</p>
+            <p><strong>Grade:</strong> ${child.grade}</p>
+            <p><strong>Teacher Name:</strong> ${child.teacherName}</p>
+            <p><strong>School:</strong> ${child.school}</p>
+            <p><strong>Activities:</strong> ${child.activities.join(" & ")}</p>
+          </div>
         `;
       })
       .join("")}
-  </table>
+  </div>
 `;

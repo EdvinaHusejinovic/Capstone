@@ -15,18 +15,24 @@ export default () => html`
     </div>
 
     <!-- Child Button -->
-    <div id="addChild" class="tabContent">
+    <div id="addChild" class="tabContent active">
       <h3>Child Profile</h3>
 
       <form id="addChildForm" method="POST" action="">
         <label for="name">Name:</label>
         <br />
-        <input type="text" name="name" id="name" placeholder="Full Name" />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          placeholder="Full Name"
+          required
+        />
         <br />
         <br />
         <label for="age">Age:</label>
         <br />
-        <input type="text" name="age" id="age" placeholder="Age" />
+        <input type="text" name="age" id="age" placeholder="Age" required />
         <br />
         <br />
         <label for="gender">Gender:</label>
@@ -44,6 +50,24 @@ export default () => html`
         <input type="text" name="grade" id="grade" placeholder="Grade" />
         <br />
         <br />
+
+        <label for="teacherName">Teacher Name:</label>
+        <br />
+        <input
+          type="text"
+          name="teacherName"
+          id="teacherName"
+          placeholder="Teacher Name"
+        />
+        <br />
+        <br />
+
+        <label for="school">School:</label>
+        <br />
+        <input type="text" name="school" id="school" placeholder="School" />
+        <br />
+        <br />
+
         <label for="activities">Activities:</label>
         <br />
         <input
@@ -60,11 +84,44 @@ export default () => html`
 
     <!-- Message Button -->
     <div id="message" class="tabContent">
-      <h3>Send Message</h3>
+      <h1>Contact Us</h1>
+      <div class="messageForm">
+        <form action="https://formspree.io/f/xeqyqpoy" method="POST">
+          <label
+            >Name:<input
+              type="text"
+              name="name"
+              placeholder="Full Name"
+              required
+            /> </label
+          ><br /><br />
+          <label
+            >Email:<input
+              type="email"
+              name="email"
+              placeholder="example@email.com"
+              required
+            /> </label
+          ><br /><br />
+          <label
+            >Message:<br /><textarea
+              class="message"
+              name="message"
+            ></textarea> </label
+          ><br />
+          <button class="formSub" type="submit" value="Submit">Submit</button>
+        </form>
+      </div>
+      <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+    </div>
+  </div>
+
+  <!-- <div id="message" class="tabContent">
+      <h3>Contact Us</h3>
 
       <label for="subject">Subject:</label>
       <br />
-      <input type="text" name="Subject" id="Subject" placeholder="Subject" />
+      <input type="text" name="Subject" id="Subject" />
       <br />
       <br />
       <label for="subject">Message:</label>
@@ -76,18 +133,5 @@ export default () => html`
       <br />
       <br />
     </div>
-  </div>
+  </div> -->
 `;
-
-// <!-- Message Page if wanted it to be a form -->
-// <div id="message" class="tabContent">
-//   <h3>Send Message</h3>
-
-//   <form id="messageForm">
-//     <!-- Form content here-->
-
-//     <button id="messageSubmit">Submit</button>
-//   </form>
-// </div>
-// </div>
-// `;

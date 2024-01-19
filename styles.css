@@ -11,6 +11,7 @@ body {
   font-family: 'Arial', sans-serif;
   text-align: center;
   margin: 0;
+  color: var(--text-color);
 }
 
 /* Headline */
@@ -21,12 +22,51 @@ img {
 header {
   display: flex;
   justify-content:space-around;
-  background-color: var(--accent-color);
-  color: var(--text-color);
-  font-size: 25px;
-  padding: 5px;
-  margin: 0px;
+  background-color: rgba(133, 108, 139, 0.8);
+  font-size: 30px;
+  padding: 2px;
+  margin: 20px;
 }
+
+/* Navigation */
+nav {
+  background-color: var(--main-color);
+  padding: 10px;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+}
+
+nav i {
+  color: var(--text-color);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+ul.nav-links {
+  list-style-type: none;
+  display: flex;
+}
+
+ul.nav-links li {
+  margin-right: 100px;
+}
+
+ul.nav-links li a {
+  text-decoration: none;
+  color:var(--text-color);
+  font-weight: bolder;
+  padding: 10px 15px;
+  border: 2px solid var(--text-color);
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+ul.nav-links li a:hover {
+  background-color: var(--text-color);
+  color: var(--border-color);
+}
+
 
 /*home page image*/
 #homePage {
@@ -38,121 +78,201 @@ header {
   justify-content: center;
   align-items: center;
   height: 90vh;
-  background-attachment: fixed; /*for image to stay fixed*/
+  background-attachment: fixed;
 }
 
 /*this is button for Join*/
-#homePage > a {
-    text-decoration: none;
-    color: var(--text-color);
-    background-color: var(--main-color);
-    font-size: 2em;
-    padding: 1.5rem;
-    border-radius: 10px;
-  }
-
-  .button-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /*Center the buttons horizontally */
-  }
-
-  .button-options button {
-    margin: 5px; /* Adds some space between buttons */
-    width: 150px; /* Set width for the buttons */
-    border-radius: 10px; /* Adjust the border-radius to make the buttons round */
-    padding: 10px; /*padding for better visual appearance */
-    cursor: pointer; /*Change cursor*/
-    transition: background-color 5s;
-  }
-  .button-options button:hover {
-    cursor: pointer;
-    background-color: var(--border-color); /*Change background color on hover */
-  }
-
-  .active {
-    border: none;
-  }
-
-  .active a {
-    color:#d86ea6;
-  }
-
-  #join {
-    cursor: pointer;
-  }
-
-  /*home weather text color*/
-#weather > h2 {
-  color: var(--text-color);
+#JoinTodayAsA {
+  font-size: 3em;
+  padding: 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: rgba(104, 150, 104, 0.7);
 }
-#weather > p {
-  color: var(--text-color);
+/* Change color on hover */
+#JoinTodayAsA:hover {
+  background-color: var(--main-color);
 }
+
+.button-options a {
+  font-size: 5em;
+  margin-bottom: 10px;
+}
+
+/*join page buttons */
+.button-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-options button {
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  margin: 10px;
+  width: 450px;
+  border-radius: 6px;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 4em;
+}
+
+.button-options button:hover {
+  cursor: pointer;
+  background-color: var(--border-color);
+  transition: background-color 1s;
+}
+
+
+/*home weather text color*/
+.weather-container {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(104, 150, 104, 0.7);
+  justify-content: space-around;
+  animation: floatAnimation 12s infinite alternate;
+}
+
+/* Style for blocks */
+.weather-block {
+  border: 1px solid var(--main-color);
+  padding: 5px;
+  margin-right: 2px;
+  border-width: 3px;
+  flex: 1;
+  box-sizing: border-box;
+  transition: background-color 0.3s;
+}
+
+/* Change color on hover */
+.weather-block:hover {
+  background-color: var(--main-color);
+}
+
+@keyframes floatAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-900px);
+  }
+}
+
+/* Change color on hover */
+.weather-block:hover {
+  background-color: var(--main-color);
+}
+
+
+/*Footer*/
+footer {
+  border-top: 1px solid var(--text-color);
+  padding: 2rem 2rem 2rem;
+  margin: 1rem 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.footer img {
+  filter: grayscale(65%);
+  width: 40px;
+  height: auto;
+}
+
+  a:hover img {
+    filter: brightness(1.5);
+}
+
 
 /* about page */
 .aboutPage {
   background: url(assets/img/kids.jpg) center center no-repeat;
   background-size: cover;
-  filter: grayscale(40%);
+  filter: grayscale(45%);
   display: flex;
   flex-direction: column;
-  justify-content: left;
+  justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100vh;
   background-attachment: fixed;
-  color: var(--text-color);
   font-size: 1.5em;
   padding: 1em;
   margin: auto;
 }
 
-.aboutPage > h3 {
-  color: var(--text-color);
-  background-color: var(--border-color);
-  text-align: left;
-  margin: auto;
-  padding: 1px 1px 1px 1px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 2.5em;
-  border-radius: 100%; /* Make the box a circle */
-  display: flex;
-}
-
-
-
-
-footer {
-  border-top: 1px solid var(--text-color);
-  color: var(--text-color);
-  padding: 2rem 2rem 2rem;
-  margin: 1rem 1rem;
+#aboutOnTrack {
+  max-width: 900px;
   text-align: center;
-  position: relative;
-
+  padding: 20px;
+  border: 2px solid var(--accent-color);
+  background-color: rgba(133, 108, 139, 0.6);
+  border-radius: 10px;
 }
 
+#aboutOnTrack h3 {
+  margin-bottom: 10px;
+  background-color: rgba(133, 108, 139, 0.9);
+}
+
+#aboutOnTrack p {
+  margin-bottom: 10px;
+}
+
+/* Resources page */
+.resources {
+  background: url(assets/img/pike.jpg) center center no-repeat;
+  background-size: cover;
+  filter: grayscale(45%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  background-attachment: fixed;
+  font-size: 1.5em;
+  padding: 1em;
+  margin: auto;
+  font-size: x-large;
+}
+
+.resourcesContainer {
+  max-width: 900px;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid var(--accent-color);
+  background-color: rgba(133, 108, 139, 0.6);
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.links {
+  display: block;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.links:hover {
+  background-color: rgba(133, 108, 139, 0.8);
+}
+
+p {
+  margin-bottom: 20px;
+}
 
 
 /* parent page */
-.parentPage {
-  color: var(--text-color);
-  text-align: center;
-}
-
-label {
-  margin-bottom: 2px;
-}
-
-#parentSideButtons {
-  display: grid;
-}
-
-
-/* sidebar */
+/* Sidebar */
 .sideButtons {
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 2;
   background-color: var(--border-color);
   width: 10vw;
   padding-right: 25px;
@@ -160,35 +280,23 @@ label {
   padding-top: 10px;
 }
 
-/*add child section*/
-#addChild {
-  grid-column-start: 2;
-  grid-column-end: 5;
-  min-width: 100%;
-  text-align: left;
+#parentSideButtons {
+  display: grid;
 }
 
-/* message page */
-#message {
-  grid-column-start: 2;
-  grid-column-end: 5;
-  min-width: 100%; /* Adjusted this value */
-  text-align: left;
-}
-
+/* Tabs and Buttons */
 .tabs {
   overflow: hidden;
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text-color);
   display: flex;
+  flex-direction: column;
   padding-top: 10px;
   padding-bottom: 10px;
   width: 10vw;
 }
 
-/* Corrected the class name to .sideButtons */
 .sideButtons button {
   background-color: inherit;
-  float: left;
   border: none;
   cursor: pointer;
   transition: 0.3s;
@@ -201,94 +309,82 @@ label {
 .sideButtons button.active {
   background-color: var(--accent-color);
 }
-.tabContent{
+
+/* Child and Message Sections */
+.tabContent {
   display: none;
   padding: 50px 50px;
-
+  grid-column-start: 2;
+  grid-column-end: 5;
+  min-width: 100%;
+  border-radius: 5px;
+  padding: 1px;
 }
 
-
-/*Child Page*/
-#child {
-  color: var(--text-color);
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-#child th, #child td {
-  border: 1px solid var(--border-color);
-  padding: 8px;
+#addChild {
   text-align: left;
+  background-color: rgba(133, 108, 139, 0.7);
 }
 
-#child th {
-  background-color: var(--border-color);
+#message {
+  text-align: center;
+  background-color: rgba(133, 108, 139, 0.7);
 }
 
+/* Child Container */
+.child-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-/*Resources page*/
-.resources  {
-  background: url(assets/img/pike.jpg) center center no-repeat;
-  background-size: cover;
-  filter: grayscale(40%);
+.child {
+  width: auto;
+  max-width: 200px;
+  border-radius: 10px;
+  border: 2px solid var(--text-color);
+  margin: 10px;
+  padding: 15px;
+  text-align: center;
+  background-color: rgba(133, 108, 139, 0.7);
+}
+
+/* Form Styles */
+form {
+  border: solid 3px var(--border-color);
   display: flex;
   flex-direction: column;
-  justify-content: left;
-  align-items: center;
-  height: 90vh;
-  background-attachment: fixed;
+  margin: 3rem 3rem;
   color: var(--text-color);
-  font-size: 1.5em;
-  padding: 1em;
-  margin: auto;
-}
-
-
-/*Form*/
-#contactMe {
-  color: var(--text-color);
-}
-#contactForm {
-  text-align: left;
-}
-form {
-  border: solid 1px var(--border-color);
-  display: flex;
-  flex-direction:column;
-  margin: 1rem 1rem;
-  color: var(--text-color);
-
 }
 
 form > * {
-  margin: 0.5rem;
+  margin: 0.1rem;
 }
 
 form > input[type="submit"] {
   width: 40%;
-  margin: 0.5rem;
+  margin: 0.1rem;
   margin-right: auto;
 }
 
 input,
 textarea {
-  width: 30%;
-  padding:10px;
+  width: calc(100% - 20px);
   margin-bottom: 5px;
   text-align: center;
+  box-sizing: border-box;
 }
 
 button {
-  background-color: #856c8d;
+  background-color: var(--accent-color);
   color: var(--text-color);
   flex-direction: column;
-  padding: 2px;
-  border-radius: 0;
+  padding: 4px;
+  border-radius: 2px;
   cursor: pointer;
 }
-
-@media (max-width: 549px){
+/* Media Queries */
+@media (max-width: 549px) {
   .hidden--mobile {
     display: none !important;
   }
@@ -308,27 +404,40 @@ button {
     display: flex;
     align-items: center;
     flex-direction: column;
-    padding: 0 0;
+    padding: 0;
   }
 
   nav > ul > li {
-    padding: 0.5rem;
+    padding: 1rem;
     list-style-type: none;
+    border: none;
   }
 
+  nav > ul > li a {
+    text-decoration: none;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 25px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  nav > ul > li a:hover {
+    background-color: var(--text-color);
+    color: var(--border-color);
+  }
 }
 
 @media (min-width: 550px) {
   nav > ul {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     padding: 0 0;
   }
 
   nav > ul > li {
     display: inline-block;
     text-decoration: none;
-    border: 1px solid;
     padding: 0.5rem 0.5rem;
     border-radius: 25px;
   }
@@ -337,4 +446,20 @@ button {
     display: none;
   }
 
+}
+
+/* Media Queries for Weather Container */
+@media (max-width: 767px) {
+  .weather-container {
+    flex-direction: column;
+    align-items: center;
+    position: static;
+    animation: none;
+
+  }
+  .weather-block {
+    margin-bottom: 5px;
+    margin-right: 0;
+    width: 100%;
+  }
 }
