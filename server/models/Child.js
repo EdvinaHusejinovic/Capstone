@@ -7,17 +7,25 @@ const childSchema = new mongoose.Schema({
     validate: /^[A-Za-z0-9 ]*$/
   },
   age: {
-    type: String,
+    type: Number,
     required: true,
-    enum: /^[A-Za-z0-9 ]*$/
+    validate: /^[A-Za-z0-9 ]*$/
   },
   gender: {
     type: String,
     validate: /^[A-Za-z0-9 ]*$/
   },
   grade: {
-    type: String,
+    type: mongoose.Schema.Types.Mixed,
     required: true,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
+  teacherName: {
+    type: String,
+    validate: /^[A-Za-z0-9 ]*$/
+  },
+  school: {
+    type: String,
     validate: /^[A-Za-z0-9 ]*$/
   },
   activities: [String]

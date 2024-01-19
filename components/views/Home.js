@@ -7,13 +7,39 @@ export default state => html`
     <br />
     <br />
 
-    <div class="weather" id="weather">
-      <h2 class="weatherApp">Today's weather</h2>
-      <p>
-        The weather in ${state.weather.city} is ${state.weather.description}.
-        Temperature is ${state.weather.temp}F, and it feels like
-        ${state.weather.feelsLike}F.
-      </p>
-    </div>
+    <div class="weather-container">
+
+      <div class="weather-block">
+        <p class="city">Weather in ${state.weather.city}:</p>
+      </div>
+
+      <div class="weather-block">
+        <p class="date">Date: ${state.weather.currentDate}</p>
+      </div>
+
+      <div class="weather-block">
+        <p class="time">Time: ${state.weather.currentTime}</p>
+      </div>
+
+      <div class="weather-block temperature">
+        <p class="Temperature">Temperature is at ${state.weather.temp}F, feels like ${state.weather.feelsLike}F</p>
+      </div>
+
+      <div class="weather-block">
+        <p class="sky">If you look up the Sky is ${state.weather.clouds}</p>
+      </div>
+
+      <div class="weather-block">
+        <p class="wind">Wind Speed: ${state.weather.windSpeed} m/s</p>
+      </div>
+
+      <div class="weather-block humidity">
+        <p class="Humidity">Humidity is at ${state.weather.humidity}%</p>
+      </div>
+
+      <div class="weather-block">
+        <p class="atmosphere">Atmospheric Pressure: ${state.weather.pressure} hPa</p>
+      </div>
+
   </section>
 `;
