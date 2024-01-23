@@ -3,7 +3,7 @@ import * as store from "./store";
 import Navigo from "navigo";
 import { capitalize } from "lodash";
 import axios from "axios";
-import { Viewnotfound } from "./components/views";
+//import { Viewnotfound } from "./components/views";
 
 const router = new Navigo("/");
 
@@ -78,7 +78,7 @@ function afterRender(state) {
             age: inputList.age.value,
             gender: inputList.gender.value,
             grade: inputList.grade.value,
-            teacher: inputList.teacher.value,
+            teacherName: inputList.teacherName.value,
             school: inputList.school.value,
             activities: inputList.activities.value
           };

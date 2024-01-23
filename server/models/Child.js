@@ -20,7 +20,7 @@ const childSchema = new mongoose.Schema({
     required: true,
     validate: /^[A-Za-z0-9 ]*$/
   },
-  teacher: {
+  teacherName: {
     type: String,
     validate: /^[A-Za-z0-9 ]*$/
   },
