@@ -78,6 +78,8 @@ function afterRender(state) {
             age: inputList.age.value,
             gender: inputList.gender.value,
             grade: inputList.grade.value,
+            teacher: inputList.teacher.value,
+            school: inputList.school.value,
             activities: inputList.activities.value
           };
 
@@ -97,7 +99,6 @@ function afterRender(state) {
               console.log("It puked", error);
             });
         });
-      //      }
     });
 
     document.querySelector("#tab2").addEventListener("click", () => {
